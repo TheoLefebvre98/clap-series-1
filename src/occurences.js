@@ -28,7 +28,25 @@ const CARDS = {
 }
 
 function occurences(cards) {
-  // CODE HERE
+
+  const result = new Object();
+
+  for(var i in CARDS){
+
+    for(let j=0; j<cards.length; j++){
+
+      if(cards[j].startsWith(CARDS[i])){
+        result[i] += 1; // Cette ligne est à fixer pour que le calcul soit correct
+                        // Je bloque dessus donc je passe à la suite
+      }
+
+    }
+
+  }
+
+  return result;
+
+  // Returns { as: NaN, height: NaN, seven: NaN }
 }
 
 export { occurences };
