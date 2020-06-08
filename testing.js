@@ -1,8 +1,19 @@
-const array1 = [5, 6, 7]
-const array2 = [5, 4, 3]
+function isAPair(cards) {
 
-function plusArray(arr1, arr2) {
-  return arr1.concat(arr2).reduce((acc, curr) => acc + curr);
+  let tmp = [];
+  let deck = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+
+  for(let j=0;j<cards.length;j++){
+    tmp.push(cards[j][0]);
+  }
+
+  for(let i=0;i<deck.length;i++){
+
+    if(tmp.indexOf(deck[i]) != tmp.lastIndexOf(deck[i]))
+      return true;
+
+  }
+
+  return false;
+
 }
-
-console.log(plusArray(array1, array2));
