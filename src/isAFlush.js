@@ -11,7 +11,23 @@
  */
 
 function isAFlush(cards) {
-  // CODE HERE
+  let occ = {}
+  let isFlush = false
+
+  cards
+    .map(c => c.split('')[c.length-1])
+    .forEach(color => {
+      if(occ[color] && occ[color] === 4) {
+        isFlush = true
+        return
+      } else if (occ[color]) {
+        occ[color] += 1
+      } else {
+        occ[color] = 1
+      }
+    });
+
+  return isFlush
 }
 
 export { isAFlush };

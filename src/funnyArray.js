@@ -11,12 +11,15 @@
  * - Si le tableau est vide, je retourne le mot 'rien'
  */
 function funnyArray(ary) {
-  if(ary.length == 0){
-    return "rien";
-  }else if(ary.length %2 == 0){
-    return ary[(ary.length/2) -1] + ary[ary.length/2];
+
+  let l = ary.length;
+  
+  if(l == 0) { return "rien" }
+
+  if(l %2 == 0){
+    return ary[(l/2) -1] + ary[l/2];
   }else{
-    return ary[Math.floor(ary.length/2)];
+    return ary[Math.floor(l/2)];
   }
 }
 

@@ -9,7 +9,7 @@
  */
 
 function increment(number) {
-  return isNaN(number) ? number + " doit être un nombre !" : number + 1;
+  return isNaN(number) ? `${number} doit être un nombre !` : number+1;
 }
 
 export { increment };

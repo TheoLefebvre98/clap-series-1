@@ -28,25 +28,28 @@ const CARDS = {
 }
 
 function occurences(cards) {
+  let occ = {}
 
-  const result = new Object();
+  cards
+    .map(c => c.split('').slice(0, c.length - 1).join())
+    .forEach(val => {
+      Object.entries(CARDS).forEach(card => {
+        let k = card[0]
+        let v = card[1]
 
-  for(var i in CARDS){
+        if(v == val) {
+          if(occ[k]) {
+            occ[k] += 1
+          } else {
+            occ[k] = 1
+          }
+        }
+      });
+    });
 
-    for(let j=0; j<cards.length; j++){
-
-      if(cards[j].startsWith(CARDS[i])){
-        result[i] += 1; // Cette ligne est à fixer pour que le calcul soit correct
-                        // Je bloque dessus donc je passe à la suite
-      }
-
-    }
-
-  }
-
-  return result;
-
-  // Returns { as: NaN, height: NaN, seven: NaN }
+    return occ
 }
+
+// Correction
 
 export { occurences };

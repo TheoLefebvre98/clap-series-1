@@ -69,7 +69,4 @@ function getType(card){
 
 }
 
-// J'ai bénéficié de l'aide de Greg pour me mettre sur la voie de cette solution,
-// Puis j'ai écrit le code seul
-
 export { orderCards };
