@@ -11,6 +11,8 @@
  *
  */
 
+import { getCardsValue, nbOccurences } from "../src/utils";
+
 const CARDS = {
   as: "A",
   king: "K",
@@ -28,28 +30,40 @@ const CARDS = {
 }
 
 function occurences(cards) {
-  let occ = {}
+//   let occ = {}
 
-  cards
-    .map(c => c.split('').slice(0, c.length - 1).join())
-    .forEach(val => {
-      Object.entries(CARDS).forEach(card => {
-        let k = card[0]
-        let v = card[1]
+//   cards
+//     .map(c => c.split('').slice(0, c.length - 1).join())
+//     .forEach(val => {
+//       Object.entries(CARDS).forEach(card => {
+//         let k = card[0]
+//         let v = card[1]
 
-        if(v == val) {
-          if(occ[k]) {
-            occ[k] += 1
-          } else {
-            occ[k] = 1
-          }
-        }
-      });
-    });
+//         if(v == val) {
+//           if(occ[k]) {
+//             occ[k] += 1
+//           } else {
+//             occ[k] = 1
+//           }
+//         }
+//       });
+//     });
 
-    return occ
-}
+//     return occ
 
 // Correction
+
+    let cardsValue = getCardsValue(cards)
+
+    let count = new Object()
+    let nbOcc = 0
+
+    for (let [key, value] of Object.entries(CARDS)) {
+      nbOcc = nbOccurences(cardsValue, value)
+      if (nbOcc > 0) count[key] = nbOcc
+    }
+    return count
+
+}
 
 export { occurences };

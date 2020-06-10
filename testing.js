@@ -1,62 +1,25 @@
-let test = ["Ad", "7h", "8d", "As", "Qs"];
+/*
+ * /!\ À faire à la fin, seul ou en groupe!
+ * Le tableau cards contient 7 cartes. L'objectif est de retourner les 5 cartes permettant de faire le 
+ * meilleur combo possible :
+ * 
+ * Dans notre jeu, il existe 4 combos possible (du plus fort au moins fort):
+ * - Le full (3 types identiques et deux types identiques : ["As", "Kd", "Ah", "Ks", "Ac"])
+ * - La flush (5 types identiques : ["As", "6s", "3s", "Ks", "Js"])
+ * - La pair (2 valeurs identiques : ["As", "6s", "Ad", "Ks", "Js"])
+ * - La hauteur (aucun des combos précédents, à ce moment c'est la carte la plus forte qui décide du combos le plus fort)
+ * 
+ * À savoir : une carte est une chaîne de caractère qui contient deux parties :
+ * - La valeur de la carte (ordre croissant): 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A
+ * - Le type de la carte (ordre croissant) : d => ♦, c => ♣, h => ♥, s => ♠
+ * 
+ * Attention, une hauteur doit comporter les 5 meilleures cartes possible en sachant que la valeur 
+ * prime sur le type !
+ * 
+ */
 
-function orderCards(cards) {
-  
-  return cards.sort(compare);
-
-}
-
-function compare(card1, card2){
-
-  if(getValue(card1) > getValue(card2))
-    return -1
-  else if(getValue(card1) < getValue(card2))
-    return 1
-  else{
-    if(getType(card1) > getType(card2))
-      return -1;
-    else
-      return 1;
-  }
-
-}
-
-function getValue(card){
-
-  let value = card.slice(0, 1);
-
-  switch(value){
-    case '1' :
-      return 10;
-    case 'J' :
-      return 11;
-    case 'Q' :
-      return 12;
-    case 'K' :
-      return 13;
-    case 'A' :
-      return 14;
-    default : 
-    return Number(value);
-  }
+function bestCombo(cards) {
   
 }
 
-function getType(card){
-
-  let type = card.slice(card.length - 1);
-
-  switch(type){
-    case 'd' :
-      return 1;
-    case 'c' :
-      return 2;
-    case 'h' :
-      return 3;
-    case 's' :
-      return 4;
-  }
-
-}
-
-console.log(orderCards(test));
+export { bestCombo };
